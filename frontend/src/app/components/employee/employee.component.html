@@ -1,0 +1,41 @@
+<div class="container" *ngIf="view">
+  <h4 class="mb-3">Account Details</h4>
+  <div class="card">
+    <div class="container mb-2">
+      Account holder's name: <b>{{view_emp.name}}</b>
+    </div>
+    <div class="container mb-2">
+      Balance(Rs.): {{view_emp.amount}}
+    </div>
+    <div class="container mb-2">
+      Age: {{view_emp.age}}
+    </div>
+    <div class="container mb-2">
+      Account number: {{view_emp.ac_number}}
+    </div>
+    <div class="container mb-2">
+      Email: {{view_emp.email}}
+    </div>
+    <div class="container mb-2">
+      Country: {{view_emp.address}}
+    </div>
+    <button class="btn btn-success" (click)="unview()"><- Go Back</button>
+  </div>
+  
+</div>
+
+<div class="container" *ngIf="!view">
+  <h3 align="center" class="mb-4">All Customers</h3>
+  <div *ngFor="let emp of employees; let i = index">
+
+    <div class="card mb-3">
+      <div class="container mb-3">Account holder's name: <b>{{emp.name}}</b></div>
+      <div class="container mb-2">
+        <button class="btn btn-sm btn-dark me-2" (click)='viewDetails(emp)'>View Details</button>
+        <button class="btn btn-sm btn-outline-primary" routerLink="/transfer-money/{{emp._id}}">Transfer money</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

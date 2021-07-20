@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="container" *ngIf="proceed">
+        <p><b>Enter amount to transfer.</b></p>
+        <form (ngSubmit)="transferFund()" [formGroup]="form">
+            <label for="amount">Amount(Rs.)</label>
+            <input type="number" class="form-control mb-2" formControlName="amount">
+            <button class="btn btn-success btn-sm">Send</button>
+        </form>
+        <hr>
+    </div>
+    <div class="container" *ngIf="!proceed">
+        <h4>Select Receiver's Account</h4>
+        <div *ngFor="let customer of allEmp">
+            <div class="container card mb-3" *ngIf="customer._id!=senderId">
+                {{customer.name}}
+                <button class="btn btn-outline-success btn-sm" (click)="selectReceiver(customer._id)">Select</button>
+            </div>
+        </div>
+        <button class="btn btn-outline-dark mt-3 mb-3" routerLink="/all">Go Back To Home</button>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<h3 align="center" class="mb-3">Transaction History</h3>
+<div class="container">
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Sender's Name</th>
+                    <th scope="col">Receiver's Name</th>
+                    <th scope="col">Amount(Rs.)</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let his of history; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{his.sender_name}}</td>
+                    <td>{{his.receiver_name}}</td>
+                    <td>{{his.amount}}</td>
+                    <td>{{his.date}}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <button class="btn btn-dark" routerLink="/all">Back</button>
+    </div>
+</div>
